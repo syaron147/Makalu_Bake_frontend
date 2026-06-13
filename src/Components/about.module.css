@@ -1,0 +1,39 @@
+.section { background: var(--surface-container-low); padding-block: var(--stack-lg); }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--stack-lg); align-items: center; }
+@media (max-width: 767px) { .grid { grid-template-columns: 1fr; gap: var(--stack-md); } }
+.title { font-family: var(--font-serif); font-size: clamp(28px,5vw,42px); font-weight: 700; color: var(--primary); margin-bottom: 24px; line-height: 1.2; letter-spacing: -0.01em; }
+.quote {
+  font-family: var(--font-serif); font-size: clamp(16px,2.2vw,20px); font-style: italic;
+  color: var(--on-surface); line-height: 1.8; margin-bottom: 28px;
+  border-left: 4px solid var(--secondary-container); padding-left: 24px;
+}
+.body { font-family: var(--font-sans); font-size: 15px; color: var(--on-surface); line-height: 1.8; margin-bottom: 32px; }
+.readMore {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--primary);
+  transition: all 0.3s ease; border-bottom: 2px solid var(--primary); padding-bottom: 4px;
+}
+.readMore:hover { gap: 14px; transform: translateX(2px); }
+.imageCol { position: relative; display: flex; justify-content: center; }
+.circle {
+  width: min(420px, 85vw); height: min(420px, 85vw);
+  border-radius: 50%; overflow: hidden;
+  border: 12px solid var(--background);
+  box-shadow: 0 20px 60px rgba(75,54,33,0.18);
+}
+.circleImg { width: 100%; height: 100%; object-fit: cover; }
+.floatCard {
+  position: absolute; bottom: -32px; left: -20px;
+  background: var(--primary); color: var(--on-primary);
+  padding: 28px 32px; border-radius: var(--radius-xl);
+  box-shadow: 0 12px 40px rgba(75,54,33,0.28); max-width: 240px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+@media (max-width: 767px) { .floatCard { position: static; max-width: 100%; margin-top: 24px; } }
+.floatLabel {
+  font-family: var(--font-sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--secondary-fixed); margin-bottom: 8px;
+}
+.floatBody { font-family: var(--font-sans); font-size: 14px; line-height: 1.6; }

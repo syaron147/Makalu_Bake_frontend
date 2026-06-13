@@ -1,0 +1,87 @@
+:root {
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f6f3ee;
+  --surface-container: #f0ede9;
+  --surface-container-high: #ebe8e3;
+  --surface-container-highest: #e5e2dd;
+  --on-surface: #1c1c19;
+  --on-surface-variant: #4e453d;
+  --outline: #80756c;
+  --outline-variant: #d2c4ba;
+  --primary: #33210d;
+  --on-primary: #ffffff;
+  --primary-container: #4b3621;
+  --on-primary-container: #bd9f83;
+  --secondary-container: #fdbe49;
+  --on-secondary-container: #704e00;
+  --secondary-fixed: #ffdeab;
+  --primary-fixed: #fedcbe;
+  --background: #fcf9f4;
+  --surface-variant: #e5e2dd;
+  --container-max: 1280px;
+  --gutter: 24px;
+  --margin-mobile: 20px;
+  --stack-sm: 16px;
+  --stack-md: 32px;
+  --stack-lg: 64px;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --radius-md: 0.5rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--background);
+  color: var(--on-surface);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; font-size: inherit; }
+
+/* Typography Enhancements */
+h1, h2, h3, h4, h5, h6 { line-height: 1.2; font-weight: 600; }
+h1 { font-size: clamp(32px, 5vw, 56px); }
+h2 { font-size: clamp(28px, 4vw, 42px); }
+h3 { font-size: clamp(22px, 3vw, 28px); }
+h4 { font-size: clamp(16px, 2vw, 20px); }
+
+p { line-height: 1.7; }
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+.glass-card {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.container {
+  width: min(100%, var(--container-max));
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@media (max-width: 767px) {
+  .container { padding-inline: var(--margin-mobile); }
+  
+  h1, h2, h3 { line-height: 1.15; }
+}

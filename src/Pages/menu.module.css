@@ -1,0 +1,279 @@
+/* ── Page wrapper ── */
+.page { padding-top: 80px; /* navbar height */ }
+
+/* ── Hero Section ── */
+.heroSection {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-container-low);
+  padding-top: var(--stack-lg);
+  padding-bottom: var(--stack-md);
+  text-align: center;
+}
+
+/* Decorative radial blobs */
+.blobTL {
+  position: absolute;
+  top: -96px; left: -96px;
+  width: 380px; height: 380px;
+  border-radius: 50%;
+  background: rgba(51, 33, 13, 0.05);
+  filter: blur(64px);
+  pointer-events: none;
+}
+.blobBR {
+  position: absolute;
+  bottom: -96px; right: -96px;
+  width: 380px; height: 380px;
+  border-radius: 50%;
+  background: rgba(125, 87, 0, 0.05);
+  filter: blur(64px);
+  pointer-events: none;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 16px;
+}
+
+.headline {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 7vw, 64px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.subline {
+  font-family: var(--font-sans);
+  font-size: clamp(16px, 2vw, 18px);
+  color: var(--on-surface-variant);
+  max-width: 640px;
+  margin-inline: auto;
+  line-height: 1.6;
+}
+
+/* ── Filter Section ── */
+.filterSection {
+  position: sticky;
+  top: 80px; /* sits just below navbar */
+  z-index: 40;
+  background: rgba(252, 249, 244, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--outline-variant);
+  padding-block: 20px;
+}
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Pills */
+.pill {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  padding: 8px 24px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--outline);
+  color: var(--on-surface-variant);
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 0.25s, color 0.25s, background 0.25s, transform 0.15s;
+}
+.pill:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.pill:active { transform: scale(0.96); }
+
+.pillActive {
+  background: var(--primary);
+  color: var(--on-primary);
+  border-color: var(--primary);
+}
+.pillActive:hover {
+  background: var(--primary-container);
+  border-color: var(--primary-container);
+  color: var(--on-primary);
+}
+
+/* ── Menu Section ── */
+.menuSection {
+  padding-top: var(--stack-lg);
+  padding-bottom: var(--stack-lg);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: var(--gutter);
+  row-gap: var(--stack-md);
+}
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+.empty {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--on-surface-variant);
+  text-align: center;
+  padding-block: var(--stack-lg);
+}
+
+/* ── Product Card ── */
+.card {
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.imageWrap {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: var(--surface-container);
+  margin-bottom: var(--stack-sm);
+  box-shadow: 0 20px 40px -10px rgba(75, 54, 33, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+.card:hover .imageWrap {
+  box-shadow: 0 30px 60px -15px rgba(75, 54, 33, 0.15);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card:hover .image { transform: scale(1.05); }
+
+/* Badge chip (top-right of image) */
+.badge {
+  position: absolute;
+  top: 14px; right: 14px;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(210, 196, 186, 0.6);
+  background: rgba(255, 255, 255, 0.22);
+  color: var(--on-surface);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Category Badge */
+.categoryBadge {
+  position: absolute;
+  top: 12px; right: 12px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: var(--primary);
+  color: var(--on-primary);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(51, 33, 13, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Card body */
+.body { display: flex; flex-direction: column; }
+
+/* Name row with dot leader */
+.nameRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  margin-bottom: 8px;
+}
+
+.name {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 600;
+  color: var(--primary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.dotLeader {
+  flex-grow: 1;
+  margin-inline: 8px;
+  border-bottom: 2px dotted var(--outline);
+  opacity: 0.35;
+  position: relative;
+  top: -4px; /* align to baseline */
+}
+
+.price {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--primary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.description {
+  font-family: var(--font-sans);
+  font-size: clamp(14px, 1.5vw, 16px);
+  color: var(--on-surface-variant);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(77, 52, 43, 0.25);
+  color: var(--on-surface-variant);
+}

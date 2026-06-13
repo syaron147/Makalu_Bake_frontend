@@ -1,0 +1,14 @@
+.section { padding-block: var(--stack-lg); background: var(--background); }
+.box { background: linear-gradient(135deg, var(--primary-container) 0%, #5a4029 100%); border-radius: 2.5rem; overflow: hidden; position: relative; box-shadow: 0 12px 48px rgba(75,54,33,0.2); }
+.dots { position: absolute; inset: 0; opacity: 0.12; background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 24px 24px; pointer-events: none; }
+.content { position: relative; z-index: 1; padding: 80px var(--gutter) 80px; text-align: center; }
+@media (max-width: 480px) { .content { padding: 60px var(--margin-mobile); } }
+.title { font-family: var(--font-serif); font-size: clamp(28px,5vw,42px); font-weight: 700; color: var(--on-primary-container); margin-bottom: 20px; letter-spacing: -0.01em; }
+.sub { font-family: var(--font-sans); font-size: clamp(15px,2vw,18px); color: rgba(255,255,255,0.85); max-width: 580px; margin-inline: auto; margin-bottom: 40px; line-height: 1.7; font-weight: 400; }
+.actions { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+.btnPrimary { font-family: var(--font-sans); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--secondary-container); color: var(--on-secondary-container); padding: 14px 40px; border-radius: var(--radius-full); transition: all 0.3s ease; }
+.btnPrimary:hover { background: var(--secondary-fixed); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(253,190,73,0.3); }
+.btnPrimary:active { transform: scale(0.96); }
+.btnOutline { font-family: var(--font-sans); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border: 1.5px solid rgba(255,255,255,0.6); color: var(--on-primary-container); padding: 14px 40px; border-radius: var(--radius-full); transition: all 0.3s ease; background: transparent; }
+.btnOutline:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.9); transform: translateY(-2px); }
+@media (max-width: 480px) { .actions { flex-direction: column; align-items: center; } .btnPrimary, .btnOutline { width: 100%; max-width: 100%; } }
